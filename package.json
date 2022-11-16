@@ -1,0 +1,21 @@
+{
+  "name": "mario",
+  "source": "index.html",
+  "main":"index.js",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "homepage": "https://mpaukov.github.io/mario",
+  "scripts": {
+    "start": "node scripts/start.js && parcel",
+    "build": "node scripts/start.js && parcel build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.0",
+    "gh-pages": "^4.0.0",
+    "parcel": "^2.8.0"
+  },
+  "dependencies": {
+    "phaser": "^3.55.2"
+  }
+}
