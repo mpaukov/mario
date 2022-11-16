@@ -1,9 +1,8 @@
 {
   "name": "mario",
   "source": "index.html",
-  "main":"index.js",
   "browserslist": "> 0.5%, last 2 versions, not dead",
-  "homepage": "https://mpaukov.github.io/mario",
+  "homepage": "https://mpaukov.github.io/mario/",
   "scripts": {
     "start": "node scripts/start.js && parcel",
     "build": "node scripts/start.js && parcel build",
