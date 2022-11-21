@@ -10,7 +10,7 @@ const config = {
   parent: "mario",
   backgroundColor: "#FFFFAC",
   title: "Tilemap",
-  url: "webtips.dev",
+  url: "https://mpaukov.github.io/mario/",
   pixelArt: true,
   physics: {
     default: "arcade",
