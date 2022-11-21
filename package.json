@@ -5,7 +5,7 @@
   "homepage": "https://mpaukov.github.io/mario/",
   "scripts": {
     "start": "node scripts/start.js && parcel",
-    "build": "node scripts/start.js && parcel build"
+    "build": "node scripts/start.js && parcel build --public-url /mario/"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.0",
