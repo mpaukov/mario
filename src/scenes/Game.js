@@ -7,8 +7,8 @@ class Game extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("tiles", "../assets/img/tiles.png");
-    this.load.tilemapTiledJSON("map", "../assets/json/map.json");
+    this.load.image("tiles", "./assets/img/tiles.png");
+    this.load.tilemapTiledJSON("map", "./assets/json/map.json");
     this.load.atlas(
       "atlas",
       "./assets/img/mario-atlas.png",
