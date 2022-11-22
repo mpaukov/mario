@@ -22,8 +22,8 @@ class Game extends Phaser.Scene {
   create() {
     this.map = this.make.tilemap({ key: "map" });
     this.tileset = this.map.addTilesetImage("map-tileset", "tiles");
-    this.platform = this.map.createLayer("platform", this.tileset, 0, 0);
-    this.map.createLayer("background", this.tileset, 0, 0);
+    this.platform = this.map.createStaticLayer("platform", this.tileset, 0, 0);
+    this.map.createStaticLayer("background", this.tileset, 0, 0);
     this.platform.setCollisionByExclusion(-1, true);
     this.player = new Player(this, 25, 200, this.platform);
     this.inputs = this.input.keyboard.createCursorKeys();
