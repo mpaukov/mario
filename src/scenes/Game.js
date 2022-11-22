@@ -1,4 +1,5 @@
 import Player from "../gameObjects/Player";
+import Coin from "../gameObjects/Coin";
 import generateAnimations from "../config/animations";
 
 class Game extends Phaser.Scene {
@@ -27,10 +28,12 @@ class Game extends Phaser.Scene {
     this.platform.setCollisionByExclusion(-1, true);
     this.player = new Player(this, 25, 200, this.platform);
     this.inputs = this.input.keyboard.createCursorKeys();
+    this.coins = new Coin(this);
   }
 
   update() {
     this.player.update(this.inputs);
+    this.coins.update();
   }
 }
 
