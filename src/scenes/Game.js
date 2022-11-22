@@ -1,5 +1,6 @@
 import Player from "../gameObjects/Player";
 import Coin from "../gameObjects/Coin";
+import Goomba from "../gameObjects/Goomba";
 import generateAnimations from "../config/animations";
 
 class Game extends Phaser.Scene {
@@ -29,11 +30,13 @@ class Game extends Phaser.Scene {
     this.player = new Player(this, 25, 200, this.platform);
     this.inputs = this.input.keyboard.createCursorKeys();
     this.coins = new Coin(this);
+    this.goombas = new Goomba(this);
   }
 
   update() {
     this.player.update(this.inputs);
     this.coins.update();
+    this.goombas.update();
   }
 }
 
