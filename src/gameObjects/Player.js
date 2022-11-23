@@ -7,9 +7,8 @@ class Player {
     );
     this.sprite = this.scene.physics.add.sprite(x, y, "atlas").setScale(2);
     this.sprite.setCollideWorldBounds(true);
-
+    this.sprite.isDed = false;
     this.collider = this.scene.physics.add.collider(this.sprite, platform);
-
     this.scene.cameras.main
       .setBounds(
         0,
@@ -26,18 +25,24 @@ class Player {
     // Mario is moving to the left
     if (input.left.isDown) {
       this.sprite.setVelocityX(-200).setFlipX(true);
-      this.sprite.body.onFloor() && this.sprite.play("run", true);
+      this.sprite.body.onFloor() &&
+        !this.sprite.isDed &&
+        this.sprite.play("run", true);
       this.scene.cameras.main.stopFollow(this.sprite);
 
       // Mario is moving to the right
     } else if (input.right.isDown) {
       this.sprite.setVelocityX(200).setFlipX(false);
-      this.sprite.body.onFloor() && this.sprite.play("run", true);
+      this.sprite.body.onFloor() &&
+        !this.sprite.isDed &&
+        this.sprite.play("run", true);
       this.reFollowPlayer();
     } else {
       // Mario is standing still
       this.sprite.setVelocityX(0);
-      this.sprite.body.onFloor() && this.sprite.play("idle", true);
+      this.sprite.body.onFloor() &&
+        !this.sprite.isDed &&
+        this.sprite.play("idle", true);
     }
 
     // Mario is jumping
@@ -60,6 +65,13 @@ class Player {
     ) {
       this.scene.cameras.main.startFollow(this.sprite);
     }
+  }
+
+  die() {
+    this.sprite.isDed = true;
+    this.sprite.setVelocity(0, -350);
+    this.sprite.play("die", true);
+    this.sprite.setCollideWorldBounds(false);
   }
 }
 

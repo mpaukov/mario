@@ -57,8 +57,13 @@ class Goomba {
 
       return;
     }
-
-    // Otherwise, it's game over
+    this.scene.player.die();
+    this.scene.input.keyboard.shutdown();
+    this.scene.physics.world.removeCollider(this.scene.player.collider);
+    this.scene.physics.world.removeCollider(this.collider);
+    setTimeout(() => {
+      this.scene.scene.start("GameOver");
+    }, 1500);
   }
 
   die() {
@@ -67,9 +72,7 @@ class Goomba {
         goomba.isDed = true;
         goomba.play("goombaDie", true);
         goomba.on("animationcomplete", () => goomba.destroy());
-
         increaseScore(1);
-
         this.scene.player.sprite.setVelocity(0, -350);
         this.scene.player.sprite.play("jump");
       }

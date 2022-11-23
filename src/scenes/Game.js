@@ -1,6 +1,7 @@
 import Player from "../gameObjects/Player";
 import Coin from "../gameObjects/Coin";
 import Goomba from "../gameObjects/Goomba";
+import Flag from "../gameObjects/Flag";
 import generateAnimations from "../config/animations";
 
 class Game extends Phaser.Scene {
@@ -26,11 +27,12 @@ class Game extends Phaser.Scene {
     this.tileset = this.map.addTilesetImage("map-tileset", "tiles");
     this.platform = this.map.createStaticLayer("platform", this.tileset, 0, 0);
     this.map.createStaticLayer("background", this.tileset, 0, 0);
-    this.platform.setCollisionByExclusion(-1, true);
+    this.platform.setCollisionByExclusion([-1, 450], true);
     this.player = new Player(this, 25, 200, this.platform);
     this.inputs = this.input.keyboard.createCursorKeys();
     this.coins = new Coin(this);
     this.goombas = new Goomba(this);
+    this.flag = new Flag(this);
   }
 
   update() {
